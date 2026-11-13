@@ -1,7 +1,7 @@
 """
-copilot_login: 用「使用者自己的 GitHub Copilot 訂閱」叫模型，做法是驅動官方的 `copilot` 命令列（`copilot -p ... -s`）。
+github_copilot_login: 用「使用者自己的 GitHub Copilot 訂閱」叫模型，做法是驅動官方的 `copilot` 命令列（`copilot -p ... -s`）。
 
-    from copilot_login import ask
+    from github_copilot_login import ask
     print(ask("請只回一個字：好").text)       # 先在終端機把 copilot 登入好（互動式 /login）
 
 依據（2026-11-13，GitHub 官方文件
@@ -89,7 +89,7 @@ def ask(prompt: str, *, model: str = "", timeout: float = 180.0, workdir: str = 
         os.makedirs(workdir, exist_ok=True)
         done = go(workdir)
     else:
-        with tempfile.TemporaryDirectory(prefix="copilot_login-", ignore_cleanup_errors=True) as tmp:
+        with tempfile.TemporaryDirectory(prefix="github_copilot_login-", ignore_cleanup_errors=True) as tmp:
             done = go(tmp)
     text = (done.stdout or "").strip()
     if done.returncode != 0 or not text:

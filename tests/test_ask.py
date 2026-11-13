@@ -2,7 +2,7 @@ import subprocess
 
 import pytest
 
-from copilot_login import MAX_PROMPT_CHARS, NOT_FOUND, LoginError, argv, ask
+from github_copilot_login import MAX_PROMPT_CHARS, NOT_FOUND, LoginError, argv, ask
 
 
 class Done:

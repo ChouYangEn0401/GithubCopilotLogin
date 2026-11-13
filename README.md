@@ -1,10 +1,12 @@
-# copilot_login
+# github_copilot_login
+
+> 非官方套件，與 GitHub、Microsoft 無關。它只是驅動你自己電腦上、已登入的官方 `copilot` 命令列，用你自己的 **GitHub Copilot** 訂閱（不是 Microsoft 365 Copilot）；不讀、不存任何 token。
 
 用你自己的 GitHub Copilot 訂閱，從 Python 叫模型：驅動官方的 `copilot -p … -s`，**不讀任何 token**。沒有相依套件。
-姊妹套件：`openai_login`（codex）。
+姊妹套件：[ChatGPTLogin](https://github.com/ChouYangEn0401/ChatGPTLogin)（codex）。
 
 ```python
-from copilot_login import ask
+from github_copilot_login import ask
 print(ask("請只回一個字：好").text)   # 先把 copilot 登入好
 ```
 
@@ -16,4 +18,4 @@ print(ask("請只回一個字：好").text)   # 先把 copilot 登入好
 - **沒在真的 copilot 上測過**（寫的時候那台沒裝）；測試用假的 runner。第一次用請先實測。
 
 ## 之後
-SYNOX 的 `ChatAdapter` 薄包一層（`kind: "copilot_login"`，`supports_tools=False` 走文字協定）。官方更正式的路是 Copilot SDK。
+SYNOX 的 `ChatAdapter` 薄包一層（`kind: "github_copilot_login"`，`supports_tools=False` 走文字協定）。官方更正式的路是 Copilot SDK。
