@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "github_copilot_login"
-version = "0.1.0"
+version = "0.2.0"
 description = "Use your own GitHub Copilot subscription from Python by driving the official copilot CLI (no token reading)."
 requires-python = ">=3.9"
 dependencies = []
