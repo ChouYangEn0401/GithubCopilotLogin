@@ -1,0 +1,27 @@
+{
+  "schema": "verifylist/1",
+  "items": [
+    {
+      "id": "pytest",
+      "what": "離線測試（假的子程序，不叫真的 CLI、不連網）",
+      "run": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider"
+      ],
+      "cwd": ".",
+      "env": {
+        "PYTHONPATH": "src"
+      },
+      "expect": "exit 0",
+      "needs": [],
+      "since": "2026-11-23",
+      "status": "pass",
+      "last_run": "2026-11-23",
+      "last_result": "19 passed"
+    }
+  ]
+}
