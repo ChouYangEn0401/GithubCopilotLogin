@@ -1,5 +1,7 @@
 # github_copilot_login
 
+第一次用？看 [docs/TUTORIAL.md](docs/TUTORIAL.md)
+
 > 非官方套件，與 GitHub、Microsoft 無關。它只是驅動你自己電腦上、已登入的官方 `copilot` 命令列，用你自己的 **GitHub Copilot** 訂閱（不是 Microsoft 365 Copilot）；不讀、不存任何 token。
 
 用你自己的 GitHub Copilot 訂閱，從 Python 叫模型：驅動官方的 `copilot -p … -s`，**不讀任何 token**。沒有相依套件。
