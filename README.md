@@ -24,7 +24,7 @@ print(ask("請只回一個字：好").text)   # 先把 copilot 登入好
 1. **不推薦拿個人訂閱服務別人**：不建議把個人訂閱拿來服務其他人、轉售、共用或分享出去——例如經 LLOP 之類的通道提供給別人、放進給訪客使用的 AI 功能，或放進給別人用的備援鏈。
 2. **條款由你自己確認**：GitHub Copilot 有自己的使用條款與政策。某種用法是否被允許，請你自己閱讀並理解該服務的條款，並自行負責。
 3. **本專案只提供技術介面**：本專案及其作者、維護者不代表任何服務商，與你如何使用自己的訂閱無關，也不對違反服務條款所造成的後果（例如帳號被限制或停用）負責。程式技術上不阻擋任何用法，但「沒被擋」不代表服務商允許。
-4. 本套件按現狀提供、不附任何擔保；這段是使用說明，不是授權條款。
+4. 這段是對 MIT 授權中「按現狀提供、不附任何擔保」的補充說明，不是額外的授權條件。
 
 <details>
 <summary>English version</summary>
@@ -34,7 +34,7 @@ print(ask("請只回一個字：好").text)   # 先把 copilot 登入好
 1. **Not recommended for serving others.** We do not recommend using a personal subscription to serve other people, or to resell, pool or share access — for example through a relay channel such as LLOP, an AI feature offered to guests, or a fallback chain used by other people.
 2. **You check the terms.** GitHub Copilot has its own terms of use and policies. Whether a particular use is allowed is for you to read, understand and take responsibility for.
 3. **Technical interface only.** This project and its authors and maintainers do not represent any service provider, are not involved in how you use your subscription, and are not responsible for the consequences of violating a provider's terms (such as account restrictions or suspension). The code does not technically block any use; not being blocked does not mean a use is permitted by the provider.
-4. This package is provided "as is", without warranty of any kind; this notice is a usage note, not a license term.
+4. This notice supplements the "as is, without warranty" clause of the MIT License; it is not an additional license condition.
 
 </details>
 
@@ -71,3 +71,7 @@ print(r.text, r.model, r.usage)          # usage 永遠是 {}（copilot 不給�
 
 ## 之後
 SYNOX 的 `ChatAdapter` 薄包一層（`kind: "github_copilot_login"`，`supports_tools=False` 走文字協定）。官方更正式的路是 Copilot SDK。
+
+## 授權
+
+MIT License — 見 [LICENSE](LICENSE)。
