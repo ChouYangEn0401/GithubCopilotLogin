@@ -62,21 +62,31 @@
    Python 3.12.8
    ```
 
-   數字要是 **3.9 或更新**。
+   這個套件 3.9 以上就能跑，但**建議 3.11 或更新**：之後如果要用 ntu_easy_llm 或 LLOP，它們要 3.11，先裝新版就不用重裝。
 
-4. **不是這樣怎麼辦**：看到 `Python was not found` 或「無法辨識 'python' 詞彙」：到 <https://www.python.org/downloads/> 下載 Windows 安裝檔，
+4. **不是這樣怎麼辦**：看到 `Python was not found` 或「無法辨識 'python' 詞彙」，或版本比 3.11 舊：到 <https://www.python.org/downloads/> 下載 Windows 安裝檔，
    安裝畫面第一頁**一定要勾「Add python.exe to PATH」**再按 Install。裝好後**關掉 PowerShell 再開一個新的**，重打一次。
 
 ### 步驟 3：安裝官方 GitHub Copilot CLI
 
 1. **做什麼**：裝 GitHub 官方的 Copilot 命令列工具（指令叫 `copilot`）。
-2. **打什麼**：
+   GitHub 官方說明寫：在 Windows 上，Copilot CLI 需要 **PowerShell 6 或更新**。Windows 內建的「Windows PowerShell」是 5.1 版，不夠新，所以先裝新版的 PowerShell。
+2. **打什麼**（一次一行）：
+
+   先裝新版 PowerShell：
+
+   ```powershell
+   winget install Microsoft.PowerShell
+   ```
+
+   再裝 Copilot CLI：
 
    ```powershell
    winget install GitHub.Copilot
    ```
 
-3. **會看到什麼**：winget（Windows 內建的安裝工具）下載並安裝，最後顯示安裝成功。
+   第一次用 winget（Windows 內建的安裝工具）時，它可能會用英文問你是否同意條款（結尾是 `[Y] Yes  [N] No`），**打 `Y` 按 Enter**。
+3. **會看到什麼**：兩個都下載並安裝完成。開始選單會多一個「PowerShell 7」（指令叫 `pwsh`）。
    **關掉 PowerShell、重開一個**，再打：
 
    ```powershell
@@ -84,11 +94,19 @@
    ```
 
    會印出一行版本號。
-
 4. **不是這樣怎麼辦**：
-   - `winget` 這個字「無法辨識」：你的 Windows 沒有 winget。改用 npm 安裝（要先到 <https://nodejs.org/> 裝 **Node.js 22 或更新**），然後打
-     `npm install -g @github/copilot`。
-   - GitHub 官方說明：<https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli>（Windows 還需要 PowerShell 6 以上，見官方說明）。
+   - 之後的步驟如果在原本的 PowerShell 裡用 `copilot` 出錯，可以改開「PowerShell 7」再試一次。（這一點還沒實測。）
+   - `winget` 這個字「無法辨識」：你的 Windows 沒有 winget。到 <https://nodejs.org/> 下載安裝 **Node.js 22 或更新**，
+     裝完**關掉 PowerShell 重開**，然後打（要寫 `npm.cmd`，PowerShell 有時會擋下只寫 `npm` 的情況）：
+
+     ```powershell
+     npm.cmd install -g @github/copilot
+     ```
+
+     這種方式沒有 winget，新版 PowerShell 要到微軟官網下載安裝。
+   - 裝好了卻說 `copilot`「無法辨識」：用 npm 裝的話，可以試著用完整路徑 `& "$env:APPDATA\npm\copilot.cmd" --version`；
+     這個套件自己也會去那裡找。用 winget 裝的話，重新開機一次再試。
+   - GitHub 官方說明：<https://docs.github.com/en/copilot/how-tos/set-up/install-copilot-cli>。
 
 ### 步驟 4：在終端機登入 Copilot
 
@@ -217,6 +235,7 @@
 | `github_copilot_login.LoginError: Copilot 沒有給答案（結束碼 …）：…` | 其他叫不動的情況 | 直接在終端機打 `copilot` 看看能不能正常用 |
 | `github_copilot_login.CallTimeoutError: Copilot 超過 180 秒沒回。` | 等太久 | 再試一次；程式裡可以 `ask(..., timeout=300)` |
 | `PromptTooLongError: 提示太長（… 字，上限 30000）…` | 問題太長（走命令列有長度上限） | 把內容縮短 |
+| 一般的 `github_copilot_login.LoginError: …`，原因看不懂 | 這個套件**還沒在真的 `copilot` 上驗證過**；可能是官方 CLI 在 Windows 上的限制（例如資料夾信任、權限、沙盒），不一定是你做錯 | 先直接在終端機打 `copilot` 確認能正常用；仍不行的話把錯誤訊息記下來（遮掉帳號資訊）回報給專案 |
 
 「沒登入」「額度用完」是看 `copilot` 的錯誤訊息猜的，猜不到就是一般的 `LoginError`（README 有寫）。
 
